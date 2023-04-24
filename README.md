@@ -8,7 +8,22 @@ https://kacpercebula.shinyapps.io/UberProject/
 ---
 
 ## Data Cleaning 
-1. Selected the columns we deemed necessary or useful for analysis and changed the variable names for easier referencing
+1. Imported necessary libraries to run visualizations and analysis.
+2. Imported months data, saved it as rds, then made a data frame out of it (Example below).
+```r
+aug14 <- read.csv("uber-raw-data-aug14.csv")
+saveRDS(aug14, "aug14.rds")
+aug <- read_rds("aug14.rds")
+```
+3. Binded all the data into one data frame and set it to a data table.
+```r
+allMonths <- rbind(apr, may, jun, jul, aug, sep) 
+setDT(allMonths)
+```
+4. Set the date and time format to be workable.
+```r
+allMonths$Date.Time <- as.POSIXct(allMonths$Date.Time, format = "%m/%d/%Y %H:%M:%S")
+```
 
 ---
 
