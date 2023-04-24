@@ -16,3 +16,8 @@ https://kacpercebula.shinyapps.io/UberProject/
 1. Created pivot tables (grouped by team) for the six distinct stats involved in the Historical_Strength metric
 
 ---
+
+## Data Analysis
+- All the visualizations and explanations can be found on the shiny app link below
+- https://kacpercebula.shinyapps.io/UberProject/
+
