@@ -17,7 +17,6 @@ library(leaflet)
 
 rm(list = ls())
 
-
 ui <- fluidPage(
   tabsetPanel(
     tabPanel(
@@ -30,12 +29,14 @@ ui <- fluidPage(
         the course of the year.")
     ),
     tabPanel(
-      "Hourly Trips (Total)",
+      "Hourly Trips (Total) / Prediction model",
       plotOutput("Hour/Trips total"),
-      p("Hourly Trips (Total): This chart shows the total number of trips taken by hour, 
-        regardless of month. The x-axis shows the hour of the day, and the y-axis shows the 
-        number of trips. You can use this chart to see how the number of trips taken during 
-        each hour varies throughout the day.")
+      p("Hourly Trips (Total) / Prediction model is a chart that shows the total number of trips 
+        taken by hour, regardless of month. The x-axis displays the hour of the day, and the 
+        y-axis shows the number of trips. This chart can be used to analyze how the number of 
+        trips taken varies throughout the day. Additionally, the chart can be used to predict the 
+        number of trips that can be taken during each hour of the day based on past data. This can 
+        be useful for optimizing your travel plans and avoiding peak hours with heavy traffic.")
     ),
     tabPanel(
       "Trips by Month & Day",

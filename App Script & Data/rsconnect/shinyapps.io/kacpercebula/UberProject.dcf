@@ -1,0 +1,14 @@
+name: UberProject
+title: UberProject
+username:
+account: kacpercebula
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8937732
+bundleId: 7129971
+url: https://kacpercebula.shinyapps.io/UberProject/
+when: 1682371975.73415
+lastSyncTime: 1682371975.73417
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: allMonths.rds
