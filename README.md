@@ -49,10 +49,6 @@ ggplot(day_month_trips, aes(x = day, y = trips, fill = factor(month))) +
 ---
 
 ## Shiny App
-
----
-
-## Data Analysis
-- All the visualizations and explanations can be found on the shiny app link below
+- All the visualizations and explanations of the charts can be found on the shiny app link below
 - https://kacpercebula.shinyapps.io/UberProject/
 
