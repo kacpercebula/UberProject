@@ -28,7 +28,7 @@ allMonths$Date.Time <- as.POSIXct(allMonths$Date.Time, format = "%m/%d/%Y %H:%M:
 ---
 
 ## Data Preparation 
-- Each chart is differen but the overall format for making each is the same
+- Trip Charts
 1. Made a pivot table for specific visualization, used group_by and summarize as main pivot_table making functions.
 ```r
 day_month_trips <- allMonths %>%
@@ -46,6 +46,38 @@ ggplot(day_month_trips, aes(x = day, y = trips, fill = factor(month))) +
   scale_fill_discrete(name = "Month", labels = c("Apr", "May", "Jun", "Jul", "Aug", "Sep")) +
   theme_minimal()
 ```
+ Heat Map - 
+1. Made a pivot table for specific visualization, used group_by and summarize as main pivot_table making functions.
+```r
+base_weekday_heat <- allMonths %>%
+  group_by(weekday = weekdays(Date.Time, abbreviate = TRUE), base = Base) %>%
+  summarize(count = n()) 
+```
+2. Made a ggplot using the pivot table with geom_tile to visualize the information in an appealing way.
+```r
+ggplot(base_weekday_heat, aes(x = base, y = weekday, fill = count)) +
+  geom_tile() +
+  scale_fill_gradient(low = "white", high = "purple") +
+  labs(title = "Uber Trips Heatmap by Base and Weekday",
+       x = "Base", y = "Day of the Week",
+       fill = "Number of Trips") +
+  theme_minimal()
+```
+
+Geospatial -
+1. Made a smaller dataset of the original dataset so the map doesn't crash
+2. Then made the map, set where it should view, and added markers using Lat, Lon, Date.Time and Base.
+```r
+subset_data <- allMonths[1:100,]
+
+map <- leaflet(data = subset_data) %>% 
+  addTiles() %>% 
+  setView(lng = -73.9776, lat = 40.7588, zoom = 12) %>%
+  addMarkers(lng = subset_data$Lon, lat = subset_data$Lat, 
+             popup = paste0("Date.Time: ", subset_data$Date.Time, "<br>",
+                            "Base: ", subset_data$Base))
+```
+
 ---
 
 ## Shiny App
