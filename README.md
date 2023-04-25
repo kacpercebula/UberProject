@@ -77,7 +77,7 @@ map <- leaflet(data = subset_data) %>%
              popup = paste0("Date.Time: ", subset_data$Date.Time, "<br>",
                             "Base: ", subset_data$Base))
 ```
-
+ 
 ---
 
 ## Shiny App
